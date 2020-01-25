@@ -46,5 +46,4 @@ for (var i = 0; i < wizards.length; i++) {
 }
 
 similarList.appendChild(fragment);
-console.log(wizards);
 
