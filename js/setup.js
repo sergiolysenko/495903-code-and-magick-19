@@ -1,29 +1,31 @@
 'use strict';
 
-document.querySelector('.setup').classList.remove('hidden');
-document.querySelector('.setup-similar').classList.remove('hidden');
+var wizards = [];
+var WIZARDS_NAMES = ['Иван', 'Хуан Себастьян', 'Мария', 'Кристоф', 'Виктор', 'Юлия', 'Люпита', 'Вашингтон'];
+var WIZARDS_SURNAMES = ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг'];
+var COAT_COLORS = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
+var EYES_COLORS = ['black', 'red', 'blue', 'yellow', 'green'];
+var WIZARDS_QUANTITY = 4;
+
+var setup = document.querySelector('.setup').classList.remove('hidden');
+var setupSimilar = document.querySelector('.setup-similar').classList.remove('hidden');
 
 var similarWizardTemplate = document.querySelector('#similar-wizard-template')
     .content
     .querySelector('.setup-similar-item');
 var similarList = document.querySelector('.setup-similar-list');
 
-var wizards = [];
-var wizardNames = ['Иван', 'Хуан Себастьян', 'Мария', 'Кристоф', 'Виктор', 'Юлия', 'Люпита', 'Вашингтон'];
-var wizardSurnames = ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг'];
-var coatColors = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
-var eyesColors = ['black', 'red', 'blue', 'yellow', 'green'];
 
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 function getRandomWizards() {
-  for (var i = 0; i < 4; i++) {
+  for (var i = 0; i < WIZARDS_QUANTITY; i++) {
     wizards.push({
-      name: wizardNames[getRandomInt(0, wizardNames.length - 1)] + ' ' + wizardSurnames[getRandomInt(0, wizardSurnames.length - 1)],
-      coatColor: coatColors[getRandomInt(0, coatColors.length - 1)],
-      eyesColor: eyesColors[getRandomInt(0, eyesColors.length - 1)]
+      name: WIZARDS_NAMES[getRandomInt(0, WIZARDS_NAMES.length - 1)] + ' ' + WIZARDS_SURNAMES[getRandomInt(0, WIZARDS_SURNAMES.length - 1)],
+      coatColor: COAT_COLORS[getRandomInt(0, COAT_COLORS.length - 1)],
+      eyesColor: EYES_COLORS[getRandomInt(0, EYES_COLORS.length - 1)]
     });
   }
   return wizards;
